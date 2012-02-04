@@ -6,3 +6,5 @@ Posted by #{link_to @post.creator.name, user_path(@post.creator.user_id)} #{@pos
 
 :markdown
   #{@post.message.body}
+
+= render :partial => "comments/form", :locals => {parent: @post}
