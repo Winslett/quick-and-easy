@@ -50,7 +50,7 @@ UmAkl::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'um-akl.com' }
+  config.action_mailer.default_url_options = { :host => ENV["MAIL_HOST"] }
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
     user_name: ENV["SENDGRID_USERNAME"],
