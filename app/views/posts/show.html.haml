@@ -1,0 +1,5 @@
+%h1= @post.title
+
+Posted by #{link_to @post.creator.name, user_path(@post.creator.user_id)}
+
+= @post.message.body

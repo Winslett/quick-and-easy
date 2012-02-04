@@ -1,7 +1,8 @@
 %h1 New Post
 
 = semantic_form_for @post do |form|
-  = form.inputs do
-    = form.input :title
-    = form.input :body, :as => :text
-  = form.buttons
+  - form.fields_for :message do |message_form|
+    = form.inputs do
+      = form.input :title
+      = message_form.input :body, :as => :text
+    = form.buttons

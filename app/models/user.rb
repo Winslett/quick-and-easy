@@ -5,6 +5,8 @@ class User
   devise :database_authenticatable, :registerable, :token_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :encryptable, :confirmable, :lockable
 
+  field :name
+  
   ## Database authenticatable
   field :email,              :type => String, :null => false, :default => ""
   field :encrypted_password, :type => String, :null => false, :default => ""
@@ -39,4 +41,8 @@ class User
 
   ## Token authenticatable
   field :authentication_token, :type => String
+
+  def as_creator
+    Creator.new(name: self.name, email: self.email, user: self)
+  end
 end

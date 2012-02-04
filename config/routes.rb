@@ -48,6 +48,7 @@ UmAkl::Application.routes.draw do
   #     resources :products
   #   end
   #
+  resources :users
   resources :posts
 
   # You can have the root of your site routed with "root"

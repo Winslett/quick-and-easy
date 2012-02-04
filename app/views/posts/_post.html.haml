@@ -1,0 +1,3 @@
+%li
+  = link_to(post.title, post)
+  = link_to(post.creator.name, user_path(post.creator.user_id))
