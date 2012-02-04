@@ -1,0 +1,10 @@
+%h2 Sign Up
+
+= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  = f.inputs :name, :email, :password, :password_confirmation
+
+  = f.buttons
+
+= render "links"

@@ -10,6 +10,7 @@ gem 'bson_ext'
 gem 'devise'
 gem 'formtastic'
 gem 'haml'
+gem 'maruku'
 
 
 # Gems used only for assets and not required
