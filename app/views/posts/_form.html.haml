@@ -1,0 +1,7 @@
+- post, form = form, nil
+= semantic_form_for post do |form|
+  = form.hidden_field :parent_id
+  = form.inputs do
+    = form.input :title
+    = form.input :message, :as => :text
+  = form.buttons

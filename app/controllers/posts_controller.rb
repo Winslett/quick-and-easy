@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.order_by(:_id.desc)
+    @posts = Post.where(parent_id: nil).order_by(:_id.desc)
   end
 
   def new
     @post = Post.new(params[:post])
-    @post.message ||= Message.new
   end
 
   def create
