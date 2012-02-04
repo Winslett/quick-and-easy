@@ -7,6 +7,9 @@ gem 'rails', '3.2.1'
 
 gem 'mongoid'
 gem 'bson_ext'
+gem 'devise'
+gem 'formtastic'
+gem 'haml'
 
 
 # Gems used only for assets and not required
