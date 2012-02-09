@@ -1,0 +1,5 @@
+- comment ||= form
+= semantic_form_for comment, url: commentable, method: :put do |f|
+  = f.input :title
+  = f.input :body, as: :text
+  = f.buttons

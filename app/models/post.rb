@@ -3,14 +3,14 @@ class Post
   include Mongoid::Timestamps
 
   field :title, type: String
-  field :message, type: String
 
-  validates_presence_of :title, :message
+  validates_presence_of :title
 
-  belongs_to :parent, class_name: "Post"
+  has_one :message, as: :messageable
+  accepts_nested_attributes_for :message
 
-  has_many :children, class_name: "Post"
-  accepts_nested_attributes_for :children
+  embeds_many :comments, as: :commentable
+  accepts_nested_attributes_for :comments
 
   embeds_one :creator, as: :createable
 end

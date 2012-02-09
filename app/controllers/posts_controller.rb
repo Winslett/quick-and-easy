@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new(params[:post])
+    @post.message ||= Message.new
   end
 
   def create

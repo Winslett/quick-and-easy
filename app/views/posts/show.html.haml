@@ -1,6 +1,10 @@
 = link_to "Back", posts_path
 
-.post
-  = render :partial => "show", :object => @post
+%h1= @post.title
 
-= render :partial => "form", :object => Post.new(parent: @post)
+Posted by #{link_to @post.creator.name, user_path(@post.creator.user_id)} #{@post.created_at < 3.days.ago ? @post.created_at.to_s(:date) : time_ago_in_words(@post.created_at)} ago
+
+:markdown
+  #{@post.message.body}
+
+= render :partial => "comments/form", object: Comment.new, locals: {commentable: @post}

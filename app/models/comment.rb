@@ -3,7 +3,9 @@ class Comment
   include Mongoid::Timestamps
 
   field :title, type: String
-  field :comment, type: String
+
+  has_one :message, as: :messageable
+  accepts_nested_attributes_for :message
 
   embeds_one :creator, as: :createable
 
