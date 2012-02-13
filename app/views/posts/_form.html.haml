@@ -1,7 +1,6 @@
 - post, form = form, nil
 = semantic_form_for post do |form|
-  - form.fields_for :message do |message_form|
-    = form.inputs do
-      = form.input :title
-      = form.input :message, :as => :text
+  = form.inputs do
+    = form.input :title
+    = form.input :message, :as => :text
   = form.buttons

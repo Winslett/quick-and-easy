@@ -40,10 +40,20 @@ describe PostsController do
     @post = Factory :post
     sign_in @post.creator.user
 
-    post :create, :post => {:title => Faker::Lorem.words, :message => {:body => Faker::Lorem.paragraphs}}
+    post :create, post: {title: Faker::Lorem.words, message: Faker::Lorem.paragraphs}
 
     response.status.should eq(302)
     response.should redirect_to("/posts/#{assigns["post"].id}")
   end
+
+  it "should create follow up posts" do
+      @post = Factory :post
+      sign_in @post.creator.user
+
+      post :create, post: {title: Faker::Lorem.words, message: Faker::Lorem.paragraphs, parent: @post}
+
+      response.status.should eq(302)
+      response.should redirect_to("/posts/#{@post.id}")
+    end
 
 end

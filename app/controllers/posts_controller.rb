@@ -14,9 +14,9 @@ class PostsController < ApplicationController
     @post.creator = current_user.as_creator
 
     if @post.save
-      redirect_to @post
+      redirect_to @post.top_parent
     else
-      render :action => "new"
+      render :action => "new", :status => 422
     end
   end
 
