@@ -12,4 +12,27 @@
  *= require_tree .
 */
 
-//= require formtastic
+$dark: #4a5487;
+$light: #fffbd5;
+
+$link: $light + ($light - #fff) / 4;
+$secondary_link: $light - $dark;
+
+body {
+  text-align: left;
+  background: $dark;
+}
+
+a, a:visited, a:active {
+  color: $link;
+}
+a.secondary, a:visited.secondary, a:active.secondary {
+  color: $secondary_link;
+}
+
+#menu {
+  width: 100%;
+}
+#menu .link {
+  float: left;
+}

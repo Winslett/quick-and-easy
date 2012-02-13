@@ -1,3 +1,8 @@
-%li
+%li{class: first ? "first" : nil}
   = link_to(post.title, post)
-  = link_to(post.creator.name, user_path(post.creator.user_id))
+  = link_to(post.creator.name, user_path(post.creator.user_id), class: "secondary")
+  = post.updated_at > 3.days.ago ? time_ago_in_words(post.updated_at) : post.updated_at.to_s(:date)
+
+  - if post.children.present?
+    %ul#children
+      = render partial: "post", collection: post.children
